@@ -9,7 +9,7 @@
  |
  */
 
-if ( ! function_exists('script_tag')) {
+if(!function_exists('script_tag')) {
 	function script_tag($src = '', $language = 'javascript', $type = 'text/javascript', $index_page = false) {
 		$CI =& get_instance();
 		$script = '<scr'.'ipt';
@@ -44,5 +44,11 @@ if ( ! function_exists('script_tag')) {
 			$script .= ' /></scr'.'ipt>'."\n";
 		}
 		return $script;
+	}
+}
+
+if(!function_exists('title_tag')) {
+	function title_tag($title){
+		return '<tit'.'le>'.$title.'</ti'.'tle>'."\n";
 	}
 }
