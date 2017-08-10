@@ -172,7 +172,7 @@ input[name="status"] {
 }
 
 /* Connexion */
-.form-signin {
+#form-signin {
     margin: 0 auto;
     max-width: 330px;
     padding: 15px;
@@ -268,4 +268,22 @@ input[name="status"] {
 	#table-tresorerie .payment {
 	    display:block;
 	}
+}
+
+div.label_row {
+    padding: 10px 0 10px 0;
+    max-height: 20px;
+}
+
+div.label_row label {
+    font-weight: normal;
+    cursor: pointer;
+    width: 100%;
+    min-height: 20px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

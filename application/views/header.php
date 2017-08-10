@@ -2,6 +2,10 @@
 <html lang="fr">
 	<head>
 <?php 
+		/*
+		 * Ce tableau peut accessoirement être mis dans un fichier de config et récupéré sous la forme
+		 * $this->config->item('meta_tags');
+		 */
 		$meta_tags = array(
 			
 			// Author.
@@ -46,8 +50,7 @@
 				'name' => 'X-UA-Compatible',
 				'content' => 'IE=edge',
 				'type' => 'equiv'
-			),
-				
+			)	
 		);
 		
 		echo meta($meta_tags);
@@ -57,3 +60,4 @@
 	    
 	</head>
 	<body>
+        <div class="container">

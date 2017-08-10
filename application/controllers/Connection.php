@@ -10,7 +10,7 @@ class Connection extends CI_Controller {
 		$rules = array(
 			array('field' => 'login_input', 'lang:label_login_input', 'rules' => 'required'),
 			array('field' => 'password_input', 'lang:label_password_input', 'rules' => 'required'),
-			array('field' => 'remember_me_radio', 'lang:label_remember_me_radio', 'rules' => 'trim')
+			array('field' => 'remember_me_checkbox', 'lang:label_remember_me_checkbox', 'rules' => 'trim')
 		);
 		
 		$this->form_validation->set_rules($rules);
