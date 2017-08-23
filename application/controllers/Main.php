@@ -4,10 +4,15 @@ class Main extends CI_Controller {
 	
 	public function index() {
 		
-		if(testUserSession() === true OR testAdminSession() === true) {
+		if(testAllSession() === true) {
 			redirect('home');
 		}
 		else {
+			
+			if($this->session->flashdata('error_msg')) {
+				$this->session->keep_flashdata('error_msg');
+			}
+			
 			redirect('connection/login');
 		}
 	}

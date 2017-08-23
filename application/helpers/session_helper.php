@@ -17,3 +17,8 @@ function testAdminSession() {
 	$CI = &get_instance();
 	return (bool)$CI->session->userdata('isAdminConnected');
 }
+
+function testAllSession() {
+	$CI = &get_instance();
+	return ((bool)$CI->session->userdata('isAdminConnected') === true OR (bool)$CI->session->userdata('isUserConnected') === true);
+}

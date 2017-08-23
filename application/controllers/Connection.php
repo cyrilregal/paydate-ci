@@ -28,9 +28,7 @@ class Connection extends CI_Controller {
 	 */
 	private function connection_form() {
 		
-		$this->page_infos->title = $this->lang->line('login_page_title');
-		$this->page_infos->keyword = $this->lang->line('login_page_keyword');
-		$this->page_infos->description = $this->lang->line('login_page_description');
+		$this->page_infos->setInfos('login');
 		
 		$this->load->view('header');
 		$this->load->view('login_form.php');
@@ -42,13 +40,30 @@ class Connection extends CI_Controller {
 	 */
 	private function connection_treatment() {
 		
+		$this->load->model('users_mdl');
+		
+		$login = $this->input->post('login_input');
+		$password = $this->input->post('password_input');
+		
+		$id_user = $this->users_mdl->login_test($login, $password);
+		
+		if($id_user === false) {
+			$this->session->set_flashdata('error_msg', $this->lang->line('error_msg_bad_login'));
+			redirect('connection/login');
+		}
+		else {
+			
+			$this->session->set_userdata('isUserConnected', true);
+			$this->session->set_userdata('userId',$id_user);
+			redirect('home');
+		}
 	}
 	
 	/**
 	 * Disconnect user session and redirect him to main
 	 */
-	public function deconnection() {
-		$this->destruction_session();
+	public function logout() {
+		$this->session_destroy();
 		redirect('main');
 	}
 	
@@ -61,6 +76,5 @@ class Connection extends CI_Controller {
 		$this->session->unset_userdata('userId');
 		
 		$this->session->sess_destroy();
-		$this->session->sess_create();
 	}
 }

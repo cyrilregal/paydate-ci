@@ -23,6 +23,7 @@
    	//----------------
    	$password_attr = array(
     	'name' => 'password_input',
+    	'type' => 'password',
     	'id' => 'inputPassword',
     	'class' => 'form-control',
     	'placeholder' => $this->lang->line('label_password_input'),
